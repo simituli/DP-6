@@ -67,4 +67,38 @@ class Solution {
         }
         return s.substring(start, end+1);
     }
+    //DP with 1-d array
+    // Time complexity: O(n^2)
+    //Space Complexity: O(n)
+     public String longestPalindrome(String s) {
+        int n = s.length();
+        boolean[] dp = new boolean[n];
+        for (int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(s.charAt(i)==s.charAt(j))
+                {
+                    if(i-j<=1||dp[j+1])
+                    {
+                        dp[j] = true;
+                        if(i-j>end-start)
+                        {
+                            start = j;
+                            end =i;
+                        }
+                    }
+                    else
+                    {
+                        dp[j]=false;
+                    }
+                }
+                else
+                {
+                    dp[j]=false;
+                }
+            }
+        }
+        return s.substring(start, end+1);
+    }
 }
