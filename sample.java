@@ -35,7 +35,7 @@ class Solution {
 
     //DP
   ////first is using DP - Time complexity: O(n^2)
-  //Space Complexity: O(n)
+  //Space Complexity: O(n*n)
     public String longestPalindrome(String s) {
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
